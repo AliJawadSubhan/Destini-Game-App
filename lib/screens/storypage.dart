@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myquizzapp/story_brain.dart';
+
+import '../custom_widgets/drawer.dart';
+import '../brain/story_brain.dart';
 
 class StoryPage extends StatefulWidget {
   const StoryPage({Key? key}) : super(key: key);
@@ -15,10 +17,28 @@ class _StoryPageState extends State<StoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: Builder(
+          builder: (context) => IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: Image.asset(
+              "images/hamburger.png",
+              color: Colors.white,
+            ),
+            iconSize: 10,
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      drawer: UserDrawer(),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
         // constraints: const BoxConstraints.expand(),
-
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
@@ -39,6 +59,7 @@ class _StoryPageState extends State<StoryPage> {
                     storypage.getStory(),
                     style: const TextStyle(
                       fontSize: 25.0,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -56,10 +77,10 @@ class _StoryPageState extends State<StoryPage> {
                     },
                     color: Colors.red,
                     child: Text(
-                      //: Step 13 - Use the storyBrain to get the text for choice 1.
                       storypage.getchoice1(),
                       style: const TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 18.0,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -88,7 +109,8 @@ class _StoryPageState extends State<StoryPage> {
                     child: Text(
                       storypage.getchoice2(),
                       style: const TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 18.0,
+                        color: Colors.white,
                       ),
                     ),
                   ),

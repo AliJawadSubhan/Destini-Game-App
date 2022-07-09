@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myquizzapp/storypage.dart';
+import 'package:myquizzapp/screens/login.dart';
 
 void main() => runApp(const Destini());
 
@@ -8,9 +8,9 @@ class Destini extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.dark(),
-      home: const StoryPage(),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen(),
     );
   }
 }
